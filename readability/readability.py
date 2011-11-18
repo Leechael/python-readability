@@ -372,7 +372,7 @@ class Document:
 
 				#if el.tag == 'div' and counts["img"] >= 1:
 				#	continue
-				if counts["p"] and counts["img"] > counts["p"]:
+				if counts["p"] and counts["img"] > counts["p"] and not self.score_node(el)['content_score'] > 0:
 					reason = "too many images (%s)" % counts["img"]
 					to_remove = True
 				elif counts["li"] > counts["p"] and tag != "ul" and tag != "ol":
